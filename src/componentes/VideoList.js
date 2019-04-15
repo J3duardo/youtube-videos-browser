@@ -4,7 +4,7 @@ import VideoItem from "./VideoItem";
 class VideoList extends Component {
   videosList = () => {
     return this.props.videos.map((video) => {
-      return <VideoItem key={video.id.videoId} video={video}/>
+      return <VideoItem key={video.id.videoId} video={video} selected={this.props.selected}/>
     })
   }
 

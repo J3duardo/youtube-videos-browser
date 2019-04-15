@@ -3,8 +3,13 @@ import "./VideoItem.css";
 
 const VideoItem = (props) => {
   const snippet = props.video.snippet;
+
+  const onClickHandler = () => {
+    props.selected(props.video)
+  }
+
   return (
-    <div className="item" id="video-item">
+    <div className="item" id="video-item" onClick={onClickHandler}>
       <img
         className="ui image"
         src={snippet.thumbnails.high.url}
