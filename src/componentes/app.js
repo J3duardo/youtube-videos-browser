@@ -5,7 +5,15 @@ import VideoList from "./VideoList";
 
 class App extends Component {
   state = {
-    videos: []
+    videos: [],
+    videoSelected: null
+  }
+
+  selectedVideo = (video) => {
+    console.log(video);
+    this.setState({
+      videoSelected: video
+    })
   }
 
   onSearchSubmit = async (term) => {
@@ -24,7 +32,7 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onSearchSubmit}/>
-        <VideoList videos={this.state.videos}/>
+        <VideoList videos={this.state.videos} selected={this.selectedVideo}/>
       </div>
     );
   }
