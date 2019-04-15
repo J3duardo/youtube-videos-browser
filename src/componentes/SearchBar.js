@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import SearchBar from "./SearchBar";
 
-class App extends Component {
+class SearchBar extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
+        Search Bar
       </div>
     );
   }
 }
 
-export default App;
+export default SearchBar;
