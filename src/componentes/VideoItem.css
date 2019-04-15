@@ -1,0 +1,19 @@
+#video-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 300ms;
+}
+
+#video-item:hover {
+  background-color: rgb(241, 241, 241);
+}
+
+#video-item img{
+  display: block;
+  max-width: 180px;
+}
+
+#video-item .video-description {
+  margin-top: 1rem;
+}
