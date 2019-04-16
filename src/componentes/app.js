@@ -15,8 +15,6 @@ class App extends Component {
   }
 
   selectedVideo = (video) => {
-    console.clear();
-    console.log(video);
     this.setState({
       videoSelected: video
     })
