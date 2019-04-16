@@ -8,7 +8,9 @@ import "./App.css";
 class App extends Component {
   state = {
     videos: [],
-    videoSelected: {}
+    videoSelected: {},
+    start: 0,
+    end: 5
   }
 
   selectedVideo = (video) => {
@@ -20,6 +22,9 @@ class App extends Component {
   }
 
   onSearchSubmit = async (term) => {
+    const listStart = this.state.start;
+    const listEnd = this.state.end;
+
     const response = await youtube.get("/search", {
       params: {
         q: term
@@ -27,7 +32,7 @@ class App extends Component {
     });
 
     this.setState({
-      videos: response.data.items,
+      videos: response.data.items.slice(listStart, listEnd),
       videoSelected: response.data.items[0]
     });
   }
