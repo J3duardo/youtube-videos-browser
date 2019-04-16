@@ -2,15 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#video-detail, #video-list {
+  width: 100%
 }
 
 #video-detail {
-  width: 65%;
-  min-width: 360px;
   margin-bottom: 1rem;
 }
 
-#video-list {
-  width: 34%;
+@media screen and (min-width: 992px) {
+  #videos-container {
+    flex-direction: row;
+  }
+
+  #video-detail {
+    width: 69%;
+  }
+  
+  #video-list {
+    width: 29%;  
+  }
 }
