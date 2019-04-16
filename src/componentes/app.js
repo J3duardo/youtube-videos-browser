@@ -28,7 +28,7 @@ class App extends Component {
 
     this.setState({
       videos: response.data.items,
-      videoSelected: {}
+      videoSelected: response.data.items[0]
     });
   }
 
