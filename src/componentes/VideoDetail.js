@@ -6,9 +6,17 @@ const VideoDetail = (props) => {
   }
 
   return (
-    <div className="ui segment">
-      <h3 className="ui header">{props.videoInfo.snippet.title}</h3>
-      <p>{props.videoInfo.snippet.description}</p>
+    <div>
+      <div className="ui embed">
+        <iframe
+          src={`https://www.youtube.com/embed/${props.videoInfo.id.videoId}`}
+          title={props.videoInfo.snippet.title}
+        />
+      </div>
+      <div className="ui segment">
+        <h3 className="ui header">{props.videoInfo.snippet.title}</h3>
+        <p>{props.videoInfo.snippet.description}</p>
+      </div>    
     </div>
   );
 }
