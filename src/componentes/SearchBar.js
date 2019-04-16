@@ -21,9 +21,10 @@ class SearchBar extends Component {
       <div className="ui segment search-bar">
         <form className="ui form" onSubmit={this.onSubmitHandler}>
           <div className="field">
-            <label>Video Search</label>
+            <label>Buscar video...</label>
             <input
               type="text"
+              placeholder="Introduzca un término de búsqueda y presione enter"
               value={this.state.searchTerm}
               onChange={this.onChangeHandler}
             />
