@@ -26,7 +26,8 @@ class App extends Component {
     });
 
     this.setState({
-      videos: response.data.items
+      videos: response.data.items,
+      videoSelected: {}
     });
   }
 
