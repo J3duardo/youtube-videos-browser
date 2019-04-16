@@ -7,6 +7,7 @@ import "./App.css";
 
 class App extends Component {
   state = {
+    fullVideoList: [],
     videos: [],
     videoSelected: {},
     start: 0,
@@ -32,9 +33,24 @@ class App extends Component {
     });
 
     this.setState({
+      fullVideoList: response.data.items,
       videos: response.data.items.slice(listStart, listEnd),
       videoSelected: response.data.items[0]
     });
+  }
+
+  loadMoreVideos = () => {
+    const newStart = this.state.end;
+    const newEnd = newStart + 5;
+    const oldList = [...this.state.videos];
+    const newItems = this.state.fullVideoList.slice(newStart, newEnd);
+    const newVideoList= [...oldList, ...newItems];
+
+    this.setState({
+      videos: newVideoList,
+      start: newStart,
+      end: newEnd
+    })
   }
 
   render() {
@@ -46,7 +62,7 @@ class App extends Component {
             <VideoDetail videoInfo={this.state.videoSelected}/>
           </div>  
           <div id="video-list">
-            <VideoList videos={this.state.videos} selected={this.selectedVideo}/>       
+            <VideoList videos={this.state.videos} selected={this.selectedVideo} loadMore={this.loadMoreVideos}/>      
           </div>   
         </div>
       </div>
