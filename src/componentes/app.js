@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import youtube from "./apis/youtube";
 import VideoList from "./VideoList";
 import VideoDetail from "./VideoDetail";
+import "./App.css";
 
 class App extends Component {
   state = {
@@ -35,8 +36,14 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onSearchSubmit}/>
-        <VideoDetail videoInfo={this.state.videoSelected}/>
-        <VideoList videos={this.state.videos} selected={this.selectedVideo}/>
+        <div id="videos-container">
+          <div id="video-detail">
+            <VideoDetail videoInfo={this.state.videoSelected}/>
+          </div>  
+          <div id="video-list">
+            <VideoList videos={this.state.videos} selected={this.selectedVideo}/>       
+          </div>   
+        </div>
       </div>
     );
   }

@@ -1,0 +1,16 @@
+#videos-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#video-detail {
+  width: 65%;
+  min-width: 360px;
+  margin-bottom: 1rem;
+}
+
+#video-list {
+  width: 34%;
+}
