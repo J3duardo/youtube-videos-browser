@@ -5,7 +5,8 @@ const VideoItem = (props) => {
   const snippet = props.video.snippet;
 
   const onClickHandler = () => {
-    props.selected(props.video)
+    props.selected(props.video);
+    window.scrollTo(0,0);
   }
 
   return (
