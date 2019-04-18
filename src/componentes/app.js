@@ -72,6 +72,7 @@ class App extends Component {
               selected={this.selectedVideo}
               loadMore={this.loadMoreVideos}
               videoRef={this.state.videoRef}
+              videoListLength={this.state.videos.length}
             />      
           </div>   
         </div>

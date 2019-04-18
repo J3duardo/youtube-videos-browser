@@ -21,7 +21,8 @@ class VideoList extends Component {
           <button
             className="ui primary button"
             style={{display: "block", width: "100%", margin: "1rem 0"}}
-            onClick={this.props.loadMore}>
+            onClick={this.props.loadMore}
+            disabled={this.props.videoListLength >= 50 ? true : false}>
             Ver más
           </button>
           : null
