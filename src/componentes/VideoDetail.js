@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class VideoDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.videoRef = React.createRef();
+  }
+
+  componentDidMount = () => {
+    this.props.scrollHandler(this.videoRef)
+  }
 
   render() {
     if(!this.props.videoInfo.snippet) {
@@ -8,7 +16,7 @@ class VideoDetail extends Component {
     }
 
     return (
-      <div>
+      <div ref={this.videoRef}>
         <div className="ui embed">
           <iframe
             src={`https://www.youtube.com/embed/${this.props.videoInfo.id.videoId}`}

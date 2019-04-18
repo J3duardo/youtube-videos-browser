@@ -11,7 +11,8 @@ class App extends Component {
     videos: [],
     videoSelected: {},
     start: 0,
-    end: 5
+    end: 5,
+    videoRef: {}
   }
 
   selectedVideo = (video) => {
@@ -51,16 +52,27 @@ class App extends Component {
     })
   }
 
+  scrollHandler = (element) => {
+    this.setState({
+      videoRef: element
+    })
+  }
+
   render() {
     return (
       <div className="ui container">
         <SearchBar onFormSubmit={this.onSearchSubmit}/>
         <div id="videos-container">
           <div id="video-detail">
-            <VideoDetail videoInfo={this.state.videoSelected}/>
+            <VideoDetail videoInfo={this.state.videoSelected} scrollHandler={this.scrollHandler}/>
           </div>  
           <div id="video-list">
-            <VideoList videos={this.state.videos} selected={this.selectedVideo} loadMore={this.loadMoreVideos}/>      
+            <VideoList
+              videos={this.state.videos}
+              selected={this.selectedVideo}
+              loadMore={this.loadMoreVideos}
+              videoRef={this.state.videoRef}
+            />      
           </div>   
         </div>
       </div>

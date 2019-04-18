@@ -5,8 +5,11 @@ const VideoItem = (props) => {
   const snippet = props.video.snippet;
 
   const onClickHandler = () => {
+    console.log(props.videoRef)
     props.selected(props.video);
-    window.scrollTo(0,0);
+    if(props.videoRef.current){
+      window.scroll({top: props.videoRef.current.offsetTop, behavior: 'smooth'})
+    }
   }
 
   return (
