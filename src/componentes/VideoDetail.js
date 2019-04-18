@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const VideoDetail = (props) => {
-  if(!props.videoInfo.snippet) {
-    return null
-  }
+class VideoDetail extends Component {
 
-  return (
-    <div>
-      <div className="ui embed">
-        <iframe
-          src={`https://www.youtube.com/embed/${props.videoInfo.id.videoId}`}
-          title={props.videoInfo.snippet.title}
-        />
+  render() {
+    if(!this.props.videoInfo.snippet) {
+      return null
+    }
+
+    return (
+      <div>
+        <div className="ui embed">
+          <iframe
+            src={`https://www.youtube.com/embed/${this.props.videoInfo.id.videoId}`}
+            title={this.props.videoInfo.snippet.title}
+          />
+        </div>
+        <div className="ui segment">
+          <h4 className="ui header">{this.props.videoInfo.snippet.title}</h4>
+          <p>{this.props.videoInfo.snippet.description}</p>
+        </div>    
       </div>
-      <div className="ui segment">
-        <h4 className="ui header">{props.videoInfo.snippet.title}</h4>
-        <p>{props.videoInfo.snippet.description}</p>
-      </div>    
-    </div>
-  );
+    );
+  }
 }
 
 export default VideoDetail;
